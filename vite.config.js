@@ -1,6 +1,7 @@
 const path = require('path')
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import { getBabelOutputPlugin } from '@rollup/plugin-babel'
+import WindiCSS from 'vite-plugin-windicss'
 import styleImport from 'vite-plugin-style-import'
 
 // https://vitejs.dev/config/
@@ -59,6 +60,9 @@ export default ({ mode }) => {
                         }
                     }
                 ]
+            }),
+            WindiCSS({
+                safelist: 'prose prose-sm m-auto text-left'
             })
         ],
         resolve: {
@@ -69,7 +73,7 @@ export default ({ mode }) => {
             }
         },
         server: {
-            port: 7772,
+            port: 7774,
             proxy: {
                 '/api': {
                     target: 'https://www.vue-js.com',

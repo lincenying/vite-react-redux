@@ -11,6 +11,7 @@ import Nav from '../components/nav.jsx'
 import Article from './article/index.jsx'
 import Main from './topics/index.jsx'
 
+import 'virtual:windi.css'
 import 'toastr/build/toastr.min.css'
 import '../assets/scss/style.scss'
 import 'nprogress/nprogress.css'

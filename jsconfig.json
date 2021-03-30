@@ -12,7 +12,5 @@
     },
     "include": ["./src/**/*"],
     "exclude": ["node_modules"],
-    "files": [
-        "node_modules/source-map/source-map"
-    ]
+    "files": ["main.ts", "node_modules/source-map/source-map.js"]
 }
