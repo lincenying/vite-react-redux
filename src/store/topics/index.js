@@ -20,7 +20,8 @@ export const slice = createSlice({
             state.lists = {
                 data: lists,
                 page,
-                pathname
+                path: pathname,
+                hasNext: data.length > 0
             }
         }
     }
