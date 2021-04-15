@@ -1,19 +1,15 @@
 import { Avatar, Card, List, Spin } from 'antd'
 import React, { useRef, useEffect } from 'react'
-import { useMappedState, useDispatch } from 'redux-react-hook'
+import { useSelector, useDispatch } from 'react-redux'
 import { useMount, useUpdateEffect } from 'ahooks'
 
-import { getArticle } from '@/store/reducers/article'
-
-const mapState = state => ({
-    article: state.article.toJS()
-})
+import { getArticle, articleState } from '@/store/article'
 
 export default function Article(props) {
     const pathname = props.location.pathname
     const id = props.match.params.id
 
-    const { article } = useMappedState(mapState)
+    const article = useSelector(articleState)
 
     const firstPathname = useRef(pathname)
     const dispatch = useDispatch()

@@ -5,7 +5,7 @@ import React from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-import DevTools from '@devtools'
+// import DevTools from '@devtools'
 
 import Nav from '../components/nav.jsx'
 import Article from './article/index.jsx'
@@ -29,7 +29,7 @@ const App = props => {
                     </Switch>
                 </CSSTransition>
             </TransitionGroup>
-            <DevTools />
+            {/* <DevTools /> */}
         </div>
         // </ScrollToTop>
     )

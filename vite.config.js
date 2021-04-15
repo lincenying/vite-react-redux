@@ -15,17 +15,7 @@ export default ({ mode }) => {
             }
         },
         plugins: [
-            getBabelOutputPlugin({
-                presets: [
-                    [
-                        '@babel/preset-env',
-                        {
-                            useBuiltIns: 'usage',
-                            corejs: '3'
-                        }
-                    ]
-                ]
-            }),
+            getBabelOutputPlugin(),
             reactRefresh(),
             styleImport({
                 libs: [

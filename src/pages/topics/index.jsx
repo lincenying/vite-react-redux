@@ -2,19 +2,16 @@
 import { Avatar, Button, List, Spin } from 'antd'
 import React, { useState, useRef, useEffect } from 'react'
 import { Link, Prompt } from 'react-router-dom'
-import { useMappedState, useDispatch } from 'redux-react-hook'
+import { useSelector, useDispatch } from 'react-redux'
 import { useMount, useUpdateEffect } from 'ahooks'
 import ls from 'store2'
-import { getTopics } from '@/store/reducers/topics'
-
-const mapState = state => ({
-    topics: state.topics.toJS()
-})
+import { getTopics, topicsState } from '@/store/topics'
 
 export default function Main(props) {
     const pathname = props.location.pathname
 
-    const { topics } = useMappedState(mapState)
+    const topics = useSelector(topicsState)
+
     const dispatch = useDispatch()
 
     const firstPathname = useRef(pathname)
