@@ -15,6 +15,7 @@ export default function Article(props) {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        console.log('useEffect')
         if (article.pathname !== props.location.pathname) {
             dispatch(getArticle({ id, pathname }))
         }
@@ -28,7 +29,7 @@ export default function Article(props) {
     useUpdateEffect(() => {
         console.log('componentDidUpdate')
         console.log(firstPathname.current, pathname)
-    }, [props])
+    }, [props.location.pathname])
 
     const { data } = article
 

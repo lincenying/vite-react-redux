@@ -1,10 +1,12 @@
 /* eslint-disable no-inline-comments */
-import { Avatar, Button, List, Spin } from 'antd'
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link, Prompt } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { useMount, useUpdateEffect } from 'ahooks'
+import { useMount, useUpdateEffect, useBoolean } from 'ahooks'
 import ls from 'store2'
+
+import { Avatar, Button, List } from 'antd'
+
 import { getTopics, topicsState } from '@/store/topics'
 
 export default function Main(props) {
@@ -15,9 +17,10 @@ export default function Main(props) {
     const dispatch = useDispatch()
 
     const firstPathname = useRef(pathname)
-    const [showMoreBtn, setShowMoreBtn] = useState(true)
+    const [loading, { setTrue: setLoadingTrue, setFalse: setLoadingFalse }] = useBoolean(false)
 
     useEffect(() => {
+        console.log('useEffect:' + topics.pathname + ' $$ ' + props.location.pathname)
         if (topics.pathname !== props.location.pathname) {
             dispatch(getTopics({ page: 1, pathname }))
         }
@@ -33,12 +36,12 @@ export default function Main(props) {
     useUpdateEffect(() => {
         console.log('componentDidUpdate')
         console.log(firstPathname.current, pathname)
-    }, [props])
+    }, [props.location.pathname])
 
     const handleLoadMore = async () => {
-        setShowMoreBtn(false)
+        setLoadingTrue()
         await dispatch(getTopics({ page: topics.page + 1, pathname }))
-        setShowMoreBtn(true)
+        setLoadingFalse()
     }
 
     const { data } = topics
@@ -73,13 +76,9 @@ export default function Main(props) {
             />
             <ul>
                 <li className="page">
-                    {showMoreBtn ? (
-                        <Button type="primary" onClick={handleLoadMore}>
-                            加载下一页
-                        </Button>
-                    ) : (
-                        <Spin />
-                    )}
+                    <Button loading={loading} type="primary" onClick={handleLoadMore}>
+                        加载下一页
+                    </Button>
                 </li>
             </ul>
         </div>

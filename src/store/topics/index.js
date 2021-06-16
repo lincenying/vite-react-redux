@@ -10,7 +10,7 @@ export const slice = createSlice({
             data: [],
             hasNext: 0,
             page: 1,
-            path: ''
+            pathname: ''
         }
     },
     reducers: {
@@ -20,7 +20,7 @@ export const slice = createSlice({
             state.lists = {
                 data: lists,
                 page,
-                path: pathname,
+                pathname,
                 hasNext: data.length > 0
             }
         }
@@ -32,9 +32,10 @@ export const { receiveTopics } = slice.actions
 export const getTopics = config => async dispatch => {
     const { data, success } = await api.get('/api/v1/topics', config)
     if (success === true) {
-        return dispatch(receiveTopics({ data, ...config }))
+        dispatch(receiveTopics({ data, ...config }))
+        return
     }
-    return dispatch(setMessage(errConfig))
+    dispatch(setMessage(errConfig))
 }
 
 export const topicsState = state => state.topics.lists
