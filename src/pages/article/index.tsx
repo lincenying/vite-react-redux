@@ -1,8 +1,4 @@
 import { Card, Spin } from 'antd'
-import React, { useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useMount, useUpdateEffect } from 'ahooks'
-
 import { articleState, getArticleItem } from '@/store/article'
 
 export default function Article() {

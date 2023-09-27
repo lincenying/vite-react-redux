@@ -1,7 +1,4 @@
-import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { useBoolean, useMount, useUpdateEffect } from 'ahooks'
 import ls from 'store2'
 
 import { Button, List } from 'antd'
