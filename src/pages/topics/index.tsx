@@ -49,13 +49,13 @@ export default function Main() {
     return (
         <div>
             <List
-                itemLayout="horizontal"
                 dataSource={data}
+                itemLayout="horizontal"
                 renderItem={item => (
                     <List.Item>
                         <List.Item.Meta
                             title={
-                                <Link to={`/article/${item._id}`} className="li-name">
+                                <Link className="li-name" to={`/article/${item._id}`}>
                                     {item.title}
                                 </Link>
                             }
@@ -65,7 +65,7 @@ export default function Main() {
             />
             <ul>
                 <li className="page">
-                    <Button loading={loading} type="primary" onClick={handleLoadMore}>加载下一页</Button>
+                    <Button loading={loading} onClick={handleLoadMore} type="primary">加载下一页</Button>
                 </li>
             </ul>
         </div>

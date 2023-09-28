@@ -28,8 +28,8 @@ export default function Article() {
     const { data } = article
 
     return (
-        <Spin spinning={article.pathname !== pathname} delay={100} size="large">
-            <Card title={data?.title} bordered={false}>
+        <Spin delay={100} size="large" spinning={article.pathname !== pathname}>
+            <Card bordered={false} title={data?.title}>
                 <div className="article-content" dangerouslySetInnerHTML={{ __html: data?.content || '' }} />
             </Card>
         </Spin>
