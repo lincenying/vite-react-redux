@@ -53,12 +53,9 @@ export default function Main() {
                 itemLayout="horizontal"
                 renderItem={item => (
                     <List.Item>
-                        <List.Item.Meta
-                            title={
-                                <Link className="li-name" to={`/article/${item._id}`}>
-                                    {item.title}
-                                </Link>
-                            }
+                        <List.Item.Meta title={(
+                            <Link className="li-name" to={`/article/${item._id}`}>{item.title}</Link>
+                        )}
                         />
                     </List.Item>
                 )}
