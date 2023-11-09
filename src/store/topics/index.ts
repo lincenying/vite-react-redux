@@ -20,12 +20,12 @@ export const slice = createSlice({
     initialState,
     reducers: {
         receiveTopics: (state, action: PayloadAction<Record<string, any>>) => {
-            const { list, hasNext, page, pathname } = action.payload
-            const lists = page === 1 ? [].concat(list) : state.lists.data.concat(list)
+            const { data, current_page, last_page, pathname } = action.payload
+            const lists = current_page === 1 ? [].concat(data) : state.lists.data.concat(data)
             state.lists = {
                 data: lists,
-                hasNext,
-                page,
+                hasNext: current_page < last_page,
+                page: current_page,
                 pathname,
             }
         },
@@ -35,7 +35,7 @@ export const slice = createSlice({
 export const { receiveTopics } = slice.actions
 
 export async function getTopics(config: Record<string, any>) {
-    const { code, data } = await api.get<ResDataLists<Article[]>>('frontend/article/list', config)
+    const { code, data } = await api.get<ResDataLists<Article[]>>('ajax/article-lists', config)
     if (code === 200)
         return receiveTopics({ ...data, ...config })
 
