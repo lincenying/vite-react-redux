@@ -15,17 +15,21 @@ const initialState: { lists: ArticleStoreList } = {
     },
 }
 
+type ArticleList = ResDataLists<Article> & {
+    pathname?: string
+}
+
 export const slice = createSlice({
     name: 'topics',
     initialState,
     reducers: {
-        receiveTopics: (state, action: PayloadAction<Record<string, any>>) => {
-            const { data, current_page, last_page, pathname } = action.payload
-            const lists = current_page === 1 ? [].concat(data) : state.lists.data.concat(data)
+        receiveTopics: (state, action: PayloadAction<ArticleList>) => {
+            const { list, page, hasNext, pathname } = action.payload
+            const lists = state.lists.data.concat(list)
             state.lists = {
                 data: lists,
-                hasNext: current_page < last_page,
-                page: current_page,
+                hasNext,
+                page,
                 pathname,
             }
         },
@@ -35,7 +39,7 @@ export const slice = createSlice({
 export const { receiveTopics } = slice.actions
 
 export async function getTopics(config: Record<string, any>) {
-    const { code, data } = await api.get<ResDataLists<Article[]>>('ajax/article-lists', config)
+    const { code, data } = await api.get<ResDataLists<Article>>('ajax/article-lists', config)
     if (code === 200)
         return receiveTopics({ ...data, ...config })
 
