@@ -23,10 +23,21 @@ function App() {
             <div className="main">
                 <Nav />
                 <TransitionGroup appear>
-                    <CSSTransition classNames="example" in={false} key={location.key} timeout={{ appear: 300, enter: 300, exit: 300 }}>
+                    <CSSTransition
+                        classNames="example"
+                        in={false}
+                        key={location.key}
+                        timeout={{ appear: 300, enter: 300, exit: 300 }}
+                    >
                         <Routes>
-                            <Route element={<Main />} path="/" />
-                            <Route element={<PageArticle />} path="/article/:id" />
+                            <Route
+                                element={<Main />}
+                                path="/"
+                            />
+                            <Route
+                                element={<PageArticle />}
+                                path="/article/:id"
+                            />
                         </Routes>
                     </CSSTransition>
                 </TransitionGroup>

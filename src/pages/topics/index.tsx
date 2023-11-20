@@ -54,7 +54,12 @@ export default function Main() {
                 renderItem={item => (
                     <List.Item>
                         <List.Item.Meta title={(
-                            <Link className="li-name" to={`/article/${item.c_id}`}>{item.c_title}</Link>
+                            <Link
+                                className="li-name"
+                                to={`/article/${item.c_id}`}
+                            >
+                                {item.c_title}
+                            </Link>
                         )}
                         />
                     </List.Item>
@@ -62,7 +67,13 @@ export default function Main() {
             />
             <ul>
                 <li className="page">
-                    <Button loading={loading} onClick={handleLoadMore} type="primary">加载下一页</Button>
+                    <Button
+                        loading={loading}
+                        onClick={handleLoadMore}
+                        type="primary"
+                    >
+                        加载下一页
+                    </Button>
                 </li>
             </ul>
         </div>
