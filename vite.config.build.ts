@@ -16,6 +16,9 @@ const config: { server: ServerOptions; build: BuildOptions } = {
                 rewrite: (path: string) => path.replace(/^\/api/, '/api'),
             },
         },
+        warmup: {
+            clientFiles: ['./src/main.tsx', './src/pages/**/*.tsx'],
+        },
     },
     build: {
         target: 'es2018',
