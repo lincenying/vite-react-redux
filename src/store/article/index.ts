@@ -27,7 +27,7 @@ export const slice = createSlice({
 export const { receiveArticle } = slice.actions
 
 export async function getArticleItem(config: Record<string, any>) {
-    const { code, data } = await api.get<Article>(`ajax/article-detail`, config)
+    const { code, data } = await api.get<Article>(`fetch/article/detail`, config)
     if (code === 200)
         return receiveArticle({ data, ...config })
 

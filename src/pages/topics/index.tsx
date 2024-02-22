@@ -47,7 +47,7 @@ export default function Main() {
     const { data } = topics
 
     return (
-        <div>
+        <div className="main">
             <List
                 dataSource={data}
                 itemLayout="horizontal"

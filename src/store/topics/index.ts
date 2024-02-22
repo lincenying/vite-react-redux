@@ -39,7 +39,7 @@ export const slice = createSlice({
 export const { receiveTopics } = slice.actions
 
 export async function getTopics(config: Record<string, any>) {
-    const { code, data } = await api.get<ResDataLists<Article>>('ajax/article-lists', config)
+    const { code, data } = await api.get<ResDataLists<Article>>('fetch/article/lists', config)
     if (code === 200)
         return receiveTopics({ ...data, ...config })
 

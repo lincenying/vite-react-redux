@@ -20,7 +20,7 @@ function App() {
     const location = useLocation()
     return (
         <StyleProvider hashPriority="high">
-            <div className="main">
+            <div>
                 <Nav />
                 <TransitionGroup appear>
                     <CSSTransition
