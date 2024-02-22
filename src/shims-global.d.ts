@@ -13,11 +13,7 @@ declare type Arrayable<T> = T | T[]
 /**
  * 键为字符串, 值为 Any 的对象
  */
-declare type Obj = Record<string, any>
-/**
- * 键为字符串, 值为 T 的对象
- */
-declare type ObjT<T> = Record<string, T>
+declare type Objable<T = any> = Record<string, T>
 /**
  * Function
  */
@@ -63,17 +59,17 @@ declare interface ResDataList<T> {
  * Api 浏览器端封装类型
  */
 declare interface ApiClientReturn {
-    get<T>(url: string, params?: Obj, headers?: Obj): Promise<ResData<T>>
-    post<T>(url: string, data?: Obj, headers?: Obj): Promise<ResData<T>>
-    file<T>(url: string, data?: Obj, headers?: Obj): Promise<ResData<T>>
+    get<T>(url: string, params?: Objable, headers?: Objable): Promise<ResData<T>>
+    post<T>(url: string, data?: Objable, headers?: Objable): Promise<ResData<T>>
+    file<T>(url: string, data?: Objable, headers?: Objable): Promise<ResData<T>>
 }
 
 /**
  * Api Node端封装类型
  */
 declare interface ApiServerReturn {
-    post<T>(url: string, data?: Obj, headers?: Obj): Promise<ResData<T>>
-    get<T>(url: string, params?: Obj, headers?: Obj): Promise<ResData<T>>
+    post<T>(url: string, data?: Objable, headers?: Objable): Promise<ResData<T>>
+    get<T>(url: string, params?: Objable, headers?: Objable): Promise<ResData<T>>
     cookies: UserCookies
     api: AxiosInstance
     getCookies: () => UserCookies
