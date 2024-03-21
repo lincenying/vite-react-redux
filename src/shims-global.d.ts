@@ -59,17 +59,17 @@ declare interface ResDataList<T> {
  * Api 浏览器端封装类型
  */
 declare interface ApiClientReturn {
-    get<T>(url: string, params?: Objable, headers?: Objable): Promise<ResData<T>>
-    post<T>(url: string, data?: Objable, headers?: Objable): Promise<ResData<T>>
-    file<T>(url: string, data?: Objable, headers?: Objable): Promise<ResData<T>>
+    get: <T>(url: string, params?: Objable, headers?: Objable) => Promise<ResData<T>>
+    post: <T>(url: string, data?: Objable, headers?: Objable) => Promise<ResData<T>>
+    file: <T>(url: string, data?: Objable, headers?: Objable) => Promise<ResData<T>>
 }
 
 /**
  * Api Node端封装类型
  */
 declare interface ApiServerReturn {
-    post<T>(url: string, data?: Objable, headers?: Objable): Promise<ResData<T>>
-    get<T>(url: string, params?: Objable, headers?: Objable): Promise<ResData<T>>
+    post: <T>(url: string, data?: Objable, headers?: Objable) => Promise<ResData<T>>
+    get: <T>(url: string, params?: Objable, headers?: Objable) => Promise<ResData<T>>
     cookies: UserCookies
     api: AxiosInstance
     getCookies: () => UserCookies
