@@ -1,9 +1,8 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
-import { errConfig, setMessage } from '../global'
-import type { RootState } from '..'
-import api from '@/api'
+import { errConfig, setMessage } from './use-global-store'
+import type { RootState } from './use-store'
 import type { Article, ArticleItemConfig } from '@/types'
 
 const initialState: ArticleItemConfig = {
@@ -12,7 +11,7 @@ const initialState: ArticleItemConfig = {
     isLoad: false,
 }
 
-export const slice = createSlice({
+const slice = createSlice({
     name: 'article',
     initialState,
     reducers: {
@@ -27,7 +26,7 @@ export const slice = createSlice({
 export const { receiveArticle } = slice.actions
 
 export async function getArticleItem(config: Record<string, any>) {
-    const { code, data } = await api.get<Article>(`fetch/article/detail`, config)
+    const { code, data } = await $api.get<Article>(`fetch/article/detail`, config)
     if (code === 200)
         return receiveArticle({ data, ...config })
 

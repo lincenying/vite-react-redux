@@ -1,9 +1,8 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
-import { errConfig, setMessage } from '../global'
-import type { RootState } from '..'
-import api from '@/api'
+import { errConfig, setMessage } from './use-global-store'
+import type { RootState } from './use-store'
 import type { Article, ArticleStoreList } from '@/types'
 
 const initialState: { lists: ArticleStoreList } = {
@@ -19,7 +18,7 @@ type ArticleList = ResDataLists<Article> & {
     pathname?: string
 }
 
-export const slice = createSlice({
+const slice = createSlice({
     name: 'topics',
     initialState,
     reducers: {
@@ -39,7 +38,7 @@ export const slice = createSlice({
 export const { receiveTopics } = slice.actions
 
 export async function getTopics(config: Record<string, any>) {
-    const { code, data } = await api.get<ResDataLists<Article>>('fetch/article/lists', config)
+    const { code, data } = await $api.get<ResDataLists<Article>>('fetch/article/lists', config)
     if (code === 200)
         return receiveTopics({ ...data, ...config })
 

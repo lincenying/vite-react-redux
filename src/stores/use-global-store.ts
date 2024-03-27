@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
-import type { RootState } from '..'
+import type { RootState } from './use-store'
 import type { GlobalStore, Message } from '@/types'
 
 const initialState: GlobalStore = {
@@ -14,7 +14,7 @@ const initialState: GlobalStore = {
     },
 }
 
-export const slice = createSlice({
+const slice = createSlice({
     name: 'global',
     initialState,
     reducers: {

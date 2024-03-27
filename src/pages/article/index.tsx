@@ -1,5 +1,4 @@
 import { Card, Spin } from 'antd'
-import { articleState, getArticleItem } from '@/store/article'
 
 export default function Article() {
     const location = useLocation()

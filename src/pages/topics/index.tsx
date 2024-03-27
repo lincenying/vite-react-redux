@@ -3,8 +3,6 @@ import ls from 'store2'
 
 import { Button, List } from 'antd'
 
-import { getTopics, topicsState } from '@/store/topics'
-
 export default function Main() {
     const location = useLocation()
     const pathname = location.pathname
