@@ -19,16 +19,18 @@ export default function Main() {
             dispatch(await getTopics({ pathname, page }))
         }
         console.log(`useEffect:${topics.pathname} $$ ${pathname}`)
-        if (topics.pathname !== pathname)
+        if (topics.pathname !== pathname) {
             handlefetchPosts()
+        }
     }, [dispatch, pathname, topics.pathname])
 
     useMount(() => {
         console.log('componentDidMount')
         const scrollTop = ls.get(pathname) || 0
         ls.remove(pathname)
-        if (scrollTop)
+        if (scrollTop) {
             window.scrollTo(0, scrollTop)
+        }
     })
 
     useUpdateEffect(() => {

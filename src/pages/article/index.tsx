@@ -14,8 +14,9 @@ export default function Article() {
 
     useMount(async () => {
         console.log('componentDidMount')
-        if (article.pathname !== pathname)
+        if (article.pathname !== pathname) {
             dispatch(await getArticleItem({ id, pathname }))
+        }
         window.scrollTo(0, 0)
     })
 
