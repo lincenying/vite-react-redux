@@ -1,8 +1,9 @@
+import { StyleProvider } from '@ant-design/cssinjs'
+
 // import ScrollToTop from '~/components/global/ScrollToTop.jsx'
 import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { StyleProvider } from '@ant-design/cssinjs'
 
 // import DevTools from '@devtools'
 

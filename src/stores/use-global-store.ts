@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from './use-store'
-import type { GlobalStore, Message } from '@/types'
+import type { GlobalStore, Message } from '~/types'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: GlobalStore = {
     ISDEV: import.meta.env.VITE_APP_ENV === 'development',

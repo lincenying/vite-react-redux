@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { routerReducer } from 'react-router-redux'
 
-import global from './use-global-store'
 import article from './use-article-store'
+import global from './use-global-store'
 import topics from './use-topics-store'
 
 const store = configureStore({

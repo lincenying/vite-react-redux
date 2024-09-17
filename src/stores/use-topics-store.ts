@@ -1,9 +1,9 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { createSlice } from '@reduxjs/toolkit'
-
-import { errConfig, setMessage } from './use-global-store'
 import type { RootState } from './use-store'
-import type { Article, ArticleStoreList } from '@/types'
+
+import type { Article, ArticleStoreList } from '~/types'
+import { createSlice } from '@reduxjs/toolkit'
+import { errConfig, setMessage } from './use-global-store'
 
 const initialState: { lists: ArticleStoreList } = {
     lists: {

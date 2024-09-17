@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import ls from 'store2'
-
 import { Button, List } from 'antd'
+import { Link } from 'react-router-dom'
+
+import ls from 'store2'
 
 export default function Main() {
     const location = useLocation()
