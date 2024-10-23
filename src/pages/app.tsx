@@ -19,27 +19,35 @@ import 'nprogress/nprogress.css'
 
 function App() {
     const location = useLocation()
+    const nodeRef = useRef(null)
+
     return (
         <StyleProvider hashPriority="high">
             <div>
                 <Nav />
-                <TransitionGroup appear>
+                <TransitionGroup
+                    appear
+                    component={null}
+                >
                     <CSSTransition
+                        nodeRef={nodeRef}
                         classNames="example"
                         in={false}
                         key={location.key}
                         timeout={{ appear: 300, enter: 300, exit: 300 }}
                     >
-                        <Routes>
-                            <Route
-                                element={<Main />}
-                                path="/"
-                            />
-                            <Route
-                                element={<PageArticle />}
-                                path="/article/:id"
-                            />
-                        </Routes>
+                        <div ref={nodeRef}>
+                            <Routes>
+                                <Route
+                                    element={<Main />}
+                                    path="/"
+                                />
+                                <Route
+                                    element={<PageArticle />}
+                                    path="/article/:id"
+                                />
+                            </Routes>
+                        </div>
                     </CSSTransition>
                 </TransitionGroup>
             </div>
