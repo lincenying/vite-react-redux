@@ -13,7 +13,7 @@
 -   [vite-vue3-h5](https://github.com/lincenying/vite-vue3-h5) - Vue3 + Vant + Vite 入门模板
 -   [vite-vue3-admin](https://github.com/lincenying/vite-vue3-admin) - Vue3 + ElementPlus + Vite 管理后台入门模板
 
-# 开发环境运行
+# 运行
 
 ```bash
 npx degit lincenying/vite-react-redux my-react-redux-app
@@ -48,3 +48,7 @@ pnpm lint:ts # ts 类型检测
 pnpm lint:css # css 检测并修复
 
 ```
+
+## License
+
+[MIT]
