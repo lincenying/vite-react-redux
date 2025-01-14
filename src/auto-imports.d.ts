@@ -37,6 +37,7 @@ declare global {
   const useAppSelector: typeof import('./stores/use-store-hooks')['useAppSelector']
   const useArticleStore: typeof import('./stores/use-article-store')['default']
   const useAsyncEffect: typeof import('ahooks')['useAsyncEffect']
+  const useAutoScroll: typeof import('./composables/index')['useAutoScroll']
   const useBoolean: typeof import('ahooks')['useBoolean']
   const useCallback: typeof import('react')['useCallback']
   const useClickAway: typeof import('ahooks')['useClickAway']

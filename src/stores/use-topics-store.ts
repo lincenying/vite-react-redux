@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './use-store'
 
-import type { Article, ArticleStoreList } from '~/types'
+import type { ApiConfig, Article, ArticleStoreList } from '~/types'
 import { createSlice } from '@reduxjs/toolkit'
 import { errConfig, setMessage } from './use-global-store'
 
@@ -37,7 +37,8 @@ const slice = createSlice({
 
 export const { receiveTopics } = slice.actions
 
-export async function getTopics(config: Record<string, any>) {
+export async function getTopics(config: ApiConfig) {
+    config.limit = 20
     const { code, data } = await $api.get<ResDataLists<Article>>('fetch/article/lists', config)
     if (code === 200) {
         return receiveTopics({ ...data, ...config })

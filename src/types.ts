@@ -21,6 +21,7 @@ export interface ApiConfig {
     limit?: number
     page?: number
     path?: string
+    pathname?: string
     key?: string | string[]
 }
 

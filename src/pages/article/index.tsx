@@ -1,6 +1,9 @@
 import { Card, Spin } from 'antd'
 
 export default function Article() {
+    if (window.$timeout.list)
+        clearTimeout(window.$timeout.list)
+
     const location = useLocation()
     const params = useParams()
 

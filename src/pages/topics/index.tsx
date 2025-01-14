@@ -23,7 +23,7 @@ export default function Main() {
         }
     }, [dispatch, pathname, topics.pathname])
 
-    useAutoScroll()
+    useAutoScroll('list')
 
     // useMount(() => {
     //     console.log('componentDidMount')

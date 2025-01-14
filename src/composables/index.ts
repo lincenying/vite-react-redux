@@ -69,15 +69,16 @@ export function timeYmd(timestamp: number) {
     return `${year}-${month < 10 ? `0${month}` : month}-${date < 10 ? `0${date}` : date}`
 }
 
-export function useAutoScroll() {
+export function useAutoScroll(key: string) {
     const location = useLocation()
     const pathname = location.pathname
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.$timeout)
-                clearTimeout(window.$timeout)
-            window.$timeout = window.setTimeout(() => {
+            if (window.$timeout[key])
+                clearTimeout(window.$timeout[key])
+
+            window.$timeout[key] = window.setTimeout(() => {
                 console.log(window.scrollY)
                 ls.set(`scroll_path_${pathname}`, window.scrollY)
             }, 200)
