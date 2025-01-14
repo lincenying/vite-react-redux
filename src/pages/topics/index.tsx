@@ -1,7 +1,6 @@
 import { Button, List } from 'antd'
 import { Link } from 'react-router-dom'
-
-import ls from 'store2'
+import { useAutoScroll } from '~/composables'
 
 export default function Main() {
     const location = useLocation()
@@ -24,14 +23,16 @@ export default function Main() {
         }
     }, [dispatch, pathname, topics.pathname])
 
-    useMount(() => {
-        console.log('componentDidMount')
-        const scrollTop = ls.get(pathname) || 0
-        ls.remove(pathname)
-        if (scrollTop) {
-            window.scrollTo(0, scrollTop)
-        }
-    })
+    useAutoScroll()
+
+    // useMount(() => {
+    //     console.log('componentDidMount')
+    //     const scrollTop = ls.get(pathname) || 0
+    //     ls.remove(pathname)
+    //     if (scrollTop) {
+    //         window.scrollTo(0, scrollTop)
+    //     }
+    // })
 
     useUpdateEffect(() => {
         console.log('componentDidUpdate')

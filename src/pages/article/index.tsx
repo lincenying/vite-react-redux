@@ -17,7 +17,7 @@ export default function Article() {
         if (article.pathname !== pathname) {
             dispatch(await getArticleItem({ id, pathname }))
         }
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
     })
 
     useUpdateEffect(() => {
@@ -30,7 +30,6 @@ export default function Article() {
     return (
         <div className="main">
             <Spin
-                delay={100}
                 size="large"
                 spinning={article.pathname !== pathname}
             >

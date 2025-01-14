@@ -1,4 +1,6 @@
 import type { Message } from '~/types'
+import ls from 'store2'
+
 import toastr from 'toastr'
 
 toastr.options.positionClass = 'toast-top-center'
@@ -65,4 +67,30 @@ export function timeYmd(timestamp: number) {
     const month = time.getMonth() + 1
     const date = time.getDate()
     return `${year}-${month < 10 ? `0${month}` : month}-${date < 10 ? `0${date}` : date}`
+}
+
+export function useAutoScroll() {
+    const location = useLocation()
+    const pathname = location.pathname
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.$timeout)
+                clearTimeout(window.$timeout)
+            window.$timeout = window.setTimeout(() => {
+                console.log(window.scrollY)
+                ls.set(`scroll_path_${pathname}`, window.scrollY)
+            }, 200)
+        }
+
+        const scrollY = ls.get(`scroll_path_${pathname}`) || 0
+        window.scrollTo(0, scrollY)
+        ls.set(`scroll_path_${pathname}`, 0)
+
+        window.addEventListener('scroll', handleScroll) // 添加滚动事件监听
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll) // 组件卸载时移除事件监听
+        }
+    }, [])
 }
