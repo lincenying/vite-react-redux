@@ -146,6 +146,10 @@
     "useGlobalStore": true,
     "useStore": true,
     "useTopicsStore": true,
-    "showMessage": true
+    "showMessage": true,
+    "AppDispatch": true,
+    "RootState": true,
+    "useTheme": true,
+    "useScrollYBeforeNavigate": true
   }
 }

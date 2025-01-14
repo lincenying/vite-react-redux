@@ -115,6 +115,7 @@ declare global {
   const useRoutes: typeof import('react-router-dom')['useRoutes']
   const useSafeState: typeof import('ahooks')['useSafeState']
   const useScroll: typeof import('ahooks')['useScroll']
+  const useScrollYBeforeNavigate: typeof import('./composables/index')['useScrollYBeforeNavigate']
   const useSearchParams: typeof import('react-router-dom')['useSearchParams']
   const useSelections: typeof import('ahooks')['useSelections']
   const useSelector: typeof import('react-redux')['useSelector']
@@ -126,6 +127,7 @@ declare global {
   const useStore: typeof import('./stores/use-store')['default']
   const useSyncExternalStore: typeof import('react')['useSyncExternalStore']
   const useTextSelection: typeof import('ahooks')['useTextSelection']
+  const useTheme: typeof import('ahooks')['useTheme']
   const useThrottle: typeof import('ahooks')['useThrottle']
   const useThrottleEffect: typeof import('ahooks')['useThrottleEffect']
   const useThrottleFn: typeof import('ahooks')['useThrottleFn']
@@ -143,4 +145,10 @@ declare global {
   const useVirtualList: typeof import('ahooks')['useVirtualList']
   const useWebSocket: typeof import('ahooks')['useWebSocket']
   const useWhyDidYouUpdate: typeof import('ahooks')['useWhyDidYouUpdate']
+}
+// for type re-export
+declare global {
+  // @ts-ignore
+  export type { RootState, AppDispatch } from './stores/use-store'
+  import('./stores/use-store')
 }
