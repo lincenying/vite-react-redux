@@ -150,6 +150,7 @@
     "AppDispatch": true,
     "RootState": true,
     "useTheme": true,
-    "useScrollYBeforeNavigate": true
+    "useScrollYBeforeNavigate": true,
+    "useAutoScroll": true
   }
 }
