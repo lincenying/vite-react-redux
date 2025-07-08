@@ -26,14 +26,8 @@ function App() {
 
                 <div ref={nodeRef}>
                     <Routes>
-                        <Route
-                            element={<Main />}
-                            path="/"
-                        />
-                        <Route
-                            element={<PageArticle />}
-                            path="/article/:id"
-                        />
+                        <Route element={<Main />} path="/" />
+                        <Route element={<PageArticle />} path="/article/:id" />
                     </Routes>
                 </div>
             </div>

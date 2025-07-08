@@ -55,10 +55,7 @@ export default function Main() {
                 renderItem={item => (
                     <List.Item>
                         <List.Item.Meta title={(
-                            <Link
-                                className="li-name"
-                                to={`/article/${item.c_id}`}
-                            >
+                            <Link className="li-name" to={`/article/${item.c_id}`}>
                                 {item.c_title}
                             </Link>
                         )}
