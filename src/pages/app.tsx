@@ -2,7 +2,7 @@ import { StyleProvider } from '@ant-design/cssinjs'
 
 // import ScrollToTop from '~/components/global/ScrollToTop.jsx'
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router'
 
 // import DevTools from '@devtools'
 

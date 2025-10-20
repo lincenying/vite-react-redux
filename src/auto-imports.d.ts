@@ -72,10 +72,10 @@ declare global {
   const useGlobalStore: typeof import('./stores/use-global-store').default
   const useHistoryTravel: typeof import('ahooks').useHistoryTravel
   const useHover: typeof import('ahooks').useHover
-  const useHref: typeof import('react-router-dom').useHref
+  const useHref: typeof import('react-router').useHref
   const useId: typeof import('react').useId
   const useImperativeHandle: typeof import('react').useImperativeHandle
-  const useInRouterContext: typeof import('react-router-dom').useInRouterContext
+  const useInRouterContext: typeof import('react-router').useInRouterContext
   const useInViewport: typeof import('ahooks').useInViewport
   const useInfiniteScroll: typeof import('ahooks').useInfiniteScroll
   const useInsertionEffect: typeof import('react').useInsertionEffect
@@ -86,7 +86,7 @@ declare global {
   const useLayoutEffect: typeof import('react').useLayoutEffect
   const useLinkClickHandler: typeof import('react-router-dom').useLinkClickHandler
   const useLocalStorageState: typeof import('ahooks').useLocalStorageState
-  const useLocation: typeof import('react-router-dom').useLocation
+  const useLocation: typeof import('react-router').useLocation
   const useLockFn: typeof import('ahooks').useLockFn
   const useLongPress: typeof import('ahooks').useLongPress
   const useMap: typeof import('ahooks').useMap
@@ -95,13 +95,13 @@ declare global {
   const useMount: typeof import('ahooks').useMount
   const useMouse: typeof import('ahooks').useMouse
   const useMutationObserver: typeof import('ahooks').useMutationObserver
-  const useNavigate: typeof import('react-router-dom').useNavigate
-  const useNavigationType: typeof import('react-router-dom').useNavigationType
+  const useNavigate: typeof import('react-router').useNavigate
+  const useNavigationType: typeof import('react-router').useNavigationType
   const useNetwork: typeof import('ahooks').useNetwork
-  const useOutlet: typeof import('react-router-dom').useOutlet
-  const useOutletContext: typeof import('react-router-dom').useOutletContext
+  const useOutlet: typeof import('react-router').useOutlet
+  const useOutletContext: typeof import('react-router').useOutletContext
   const usePagination: typeof import('ahooks').usePagination
-  const useParams: typeof import('react-router-dom').useParams
+  const useParams: typeof import('react-router').useParams
   const usePrevious: typeof import('ahooks').usePrevious
   const useRafInterval: typeof import('ahooks').useRafInterval
   const useRafState: typeof import('ahooks').useRafState
@@ -111,9 +111,9 @@ declare global {
   const useRef: typeof import('react').useRef
   const useRequest: typeof import('ahooks').useRequest
   const useResetState: typeof import('ahooks').useResetState
-  const useResolvedPath: typeof import('react-router-dom').useResolvedPath
+  const useResolvedPath: typeof import('react-router').useResolvedPath
   const useResponsive: typeof import('ahooks').useResponsive
-  const useRoutes: typeof import('react-router-dom').useRoutes
+  const useRoutes: typeof import('react-router').useRoutes
   const useSafeState: typeof import('ahooks').useSafeState
   const useScroll: typeof import('ahooks').useScroll
   const useScrollYBeforeNavigate: typeof import('./composables/index')['useScrollYBeforeNavigate']

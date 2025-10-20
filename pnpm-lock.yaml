@@ -41,7 +41,7 @@ importers:
       react-redux:
         specifier: ^9.2.0
         version: 9.2.0(@types/react@19.0.6)(react@19.2.0)(redux@5.0.1)
-      react-router-dom:
+      react-router:
         specifier: ^7.9.4
         version: 7.9.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react-router-redux:
@@ -84,9 +84,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.2
         version: 19.2.2(@types/react@19.0.6)
-      '@types/react-router-dom':
-        specifier: ^5.3.3
-        version: 5.3.3
       '@types/react-router-redux':
         specifier: ^5.0.27
         version: 5.0.27
@@ -1258,9 +1255,6 @@ packages:
     resolution: {integrity: sha512-9KQPoO6mZCi7jcIStSnlOWn2nEF3mNmyr3rIAsGnAbQKYbRLyqmeSc39EVgtxXVia+LMT8j3knZLAZAh+xLmrw==}
     peerDependencies:
       '@types/react': ^19.2.0
-
-  '@types/react-router-dom@5.3.3':
-    resolution: {integrity: sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==}
 
   '@types/react-router-redux@5.0.27':
     resolution: {integrity: sha512-qC5lbuP2K/kMR/HE3e5ltCJptyiQhmfV0wbklqcqWDbNdpJBDwUsBGP4f/0RDYJf09+OTbz43u6iG+8E0Zcwqw==}
@@ -3333,13 +3327,6 @@ packages:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
 
-  react-router-dom@7.9.4:
-    resolution: {integrity: sha512-f30P6bIkmYvnHHa5Gcu65deIXoA2+r3Eb6PJIAddvsT9aGlchMatJ51GgpU470aSqRRbFX22T70yQNUGuW3DfA==}
-    engines: {node: '>=20.0.0'}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
-
   react-router-redux@4.0.8:
     resolution: {integrity: sha512-lzlK+S6jZnn17BZbzBe6F8ok3YAhGAUlyWgRu3cz5mT199gKxfem5lNu3qcgzRiVhNEOFVG0/pdT+1t4aWhoQw==}
 
@@ -5034,12 +5021,6 @@ snapshots:
     dependencies:
       '@types/react': 19.0.6
 
-  '@types/react-router-dom@5.3.3':
-    dependencies:
-      '@types/history': 4.7.11
-      '@types/react': 19.0.6
-      '@types/react-router': 5.1.20
-
   '@types/react-router-redux@5.0.27':
     dependencies:
       '@types/history': 4.7.11
@@ -5382,7 +5363,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.12':
     dependencies:
-      '@babel/parser': 7.28.0
+      '@babel/parser': 7.28.4
       '@vue/shared': 3.5.12
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -5395,7 +5376,7 @@ snapshots:
 
   '@vue/compiler-sfc@3.5.12':
     dependencies:
-      '@babel/parser': 7.28.0
+      '@babel/parser': 7.28.4
       '@vue/compiler-core': 3.5.12
       '@vue/compiler-dom': 3.5.12
       '@vue/compiler-ssr': 3.5.12
@@ -7647,12 +7628,6 @@ snapshots:
       redux: 5.0.1
 
   react-refresh@0.17.0: {}
-
-  react-router-dom@7.9.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
-    dependencies:
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
-      react-router: 7.9.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
 
   react-router-redux@4.0.8: {}
 

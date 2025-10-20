@@ -1,5 +1,5 @@
 import { Button, List } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { useAutoScroll } from '~/composables'
 
 export default function Main() {
