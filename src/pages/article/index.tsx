@@ -37,7 +37,7 @@ export default function Article() {
                 spinning={article.pathname !== pathname}
             >
                 <Card
-                    bordered={false}
+                    variant="outlined"
                     title={data?.c_title}
                 >
                     <div
