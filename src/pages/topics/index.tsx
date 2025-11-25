@@ -1,4 +1,4 @@
-import { Button, List } from 'antd'
+import { Button } from 'antd'
 import { Link } from 'react-router'
 import { useAutoScroll } from '~/composables'
 
@@ -49,21 +49,16 @@ export default function Main() {
 
     return (
         <div className="main">
-            <List
-                dataSource={data}
-                itemLayout="horizontal"
-                renderItem={item => (
-                    <List.Item>
-                        <List.Item.Meta title={(
+            <ul>
+                {
+                    data.map(item => (
+                        <li key={item.c_id}>
                             <Link className="li-name" to={`/article/${item.c_id}`}>
                                 {item.c_title}
                             </Link>
-                        )}
-                        />
-                    </List.Item>
-                )}
-            />
-            <ul>
+                        </li>
+                    ))
+                }
                 <li className="page">
                     <Button
                         loading={loading}

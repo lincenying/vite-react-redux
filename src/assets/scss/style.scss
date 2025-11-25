@@ -269,3 +269,9 @@ body {
 pre {
     overflow: auto;
 }
+
+#root {
+    .ant-btn {
+        background-color: var(--ant-btn-bg-color);
+    }
+}
