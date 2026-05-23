@@ -1,47 +1,32 @@
+import { useBoolean } from 'ahooks'
 import { Button } from 'antd'
-import { Link } from 'react-router'
-import { useAutoScroll } from '~/composables'
+import { useEffect } from 'react'
+import { Link, useLocation } from 'react-router'
 
-export default function Main() {
+import { useAutoScroll } from '~/hooks/useAutoScroll'
+import { fetchTopics, selectTopics } from '~/stores/topicsSlice'
+import { useAppDispatch, useAppSelector } from '~/stores/hooks'
+
+function TopicsPage() {
     const location = useLocation()
     const pathname = location.pathname
 
-    const topics = useSelector(topicsState)
+    const topics = useAppSelector(selectTopics)
+    const dispatch = useAppDispatch()
 
-    const dispatch = useDispatch()
-
-    const firstPathname = useRef(pathname)
     const [loading, { setTrue: setLoadingTrue, setFalse: setLoadingFalse }] = useBoolean(false)
 
     useEffect(() => {
-        const handlefetchPosts = async (page = 1) => {
-            dispatch(await getTopics({ pathname, page }))
-        }
-        console.log(`useEffect:${topics.pathname} $$ ${pathname}`)
         if (topics.pathname !== pathname) {
-            handlefetchPosts()
+            dispatch(fetchTopics({ pathname, page: 1 }))
         }
     }, [dispatch, pathname, topics.pathname])
 
     useAutoScroll('list')
 
-    // useMount(() => {
-    //     console.log('componentDidMount')
-    //     const scrollTop = ls.get(pathname) || 0
-    //     ls.remove(pathname)
-    //     if (scrollTop) {
-    //         window.scrollTo(0, scrollTop)
-    //     }
-    // })
-
-    useUpdateEffect(() => {
-        console.log('componentDidUpdate')
-        console.log(firstPathname.current, pathname)
-    }, [pathname])
-
     const handleLoadMore = async () => {
         setLoadingTrue()
-        dispatch(await getTopics({ page: topics.page + 1, pathname }))
+        await dispatch(fetchTopics({ page: topics.page + 1, pathname }))
         setLoadingFalse()
     }
 
@@ -72,3 +57,5 @@ export default function Main() {
         </div>
     )
 }
+
+export default TopicsPage

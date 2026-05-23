@@ -26,7 +26,8 @@ export default (): PluginOption[] => ([
         dts: 'src/auto-imports.d.ts',
         dirs: [
             'src/stores/**',
-            'src/composables',
+            'src/hooks/**',
+            'src/api/**',
         ],
 
         resolvers: [],

@@ -3,11 +3,11 @@ import { useUpdateEffect } from 'ahooks'
 import { useRef } from 'react'
 import { useLocation } from 'react-router'
 
-interface Props {
+interface IScrollToTopProps {
     children?: ReactNode
 }
 
-export default function ScrollToTop(props: Props) {
+export default function ScrollToTop(props: IScrollToTopProps) {
     const location = useLocation()
     const pathname = location.pathname
     const firstPathname = useRef(pathname)

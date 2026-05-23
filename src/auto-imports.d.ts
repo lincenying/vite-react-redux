@@ -6,38 +6,43 @@
 // biome-ignore lint: disable
 export {}
 declare global {
-  const $api: typeof import('./composables/fetch').$api
+  const API_ERROR_MESSAGE: typeof import('./stores/globalSlice').API_ERROR_MESSAGE
+  const Activity: typeof import('react').Activity
+  const Fragment: typeof import('react').Fragment
   const Link: typeof import('react-router-dom').Link
   const NavLink: typeof import('react-router-dom').NavLink
   const Navigate: typeof import('react-router-dom').Navigate
   const Outlet: typeof import('react-router-dom').Outlet
   const Route: typeof import('react-router-dom').Route
   const Routes: typeof import('react-router-dom').Routes
-  const apiConfig: typeof import('./composables/config').apiConfig
-  const articleState: typeof import('./stores/use-article-store').articleState
+  const Suspense: typeof import('react').Suspense
+  const articleSlice: typeof import('./stores/articleSlice').default
+  const cache: typeof import('react').cache
+  const cacheSignal: typeof import('react').cacheSignal
+  const createContext: typeof import('react').createContext
   const createRef: typeof import('react').createRef
-  const errConfig: typeof import('./stores/use-global-store').errConfig
+  const fetchArticleDetail: typeof import('./api/articleApi').fetchArticleDetail
+  const fetchArticleItem: typeof import('./stores/articleSlice').fetchArticleItem
+  const fetchArticleList: typeof import('./api/articleApi').fetchArticleList
+  const fetchTopics: typeof import('./stores/topicsSlice').fetchTopics
   const forwardRef: typeof import('react').forwardRef
-  const getArticleItem: typeof import('./stores/use-article-store').getArticleItem
-  const getTopics: typeof import('./stores/use-topics-store').getTopics
-  const globalState: typeof import('./stores/use-global-store').globalState
+  const globalSlice: typeof import('./stores/globalSlice').default
   const lazy: typeof import('react').lazy
   const memo: typeof import('react').memo
-  const receiveArticle: typeof import('./stores/use-article-store').receiveArticle
-  const receiveTopics: typeof import('./stores/use-topics-store').receiveTopics
-  const setMessage: typeof import('./stores/use-global-store').setMessage
-  const showMessage: typeof import('./composables/index').showMessage
+  const selectArticle: typeof import('./stores/articleSlice').selectArticle
+  const selectGlobal: typeof import('./stores/globalSlice').selectGlobal
+  const selectTopics: typeof import('./stores/topicsSlice').selectTopics
+  const setMessage: typeof import('./stores/globalSlice').setMessage
   const startTransition: typeof import('react').startTransition
-  const strlen: typeof import('./composables/index').strlen
-  const timeAgo: typeof import('./composables/index').timeAgo
-  const timeYmd: typeof import('./composables/index').timeYmd
-  const topicsState: typeof import('./stores/use-topics-store').topicsState
+  const stores: typeof import('./stores/index').default
+  const topicsSlice: typeof import('./stores/topicsSlice').default
+  const use: typeof import('react').use
+  const useActionState: typeof import('react').useActionState
   const useAntdTable: typeof import('ahooks').useAntdTable
-  const useAppDispatch: typeof import('./stores/use-store-hooks').useAppDispatch
-  const useAppSelector: typeof import('./stores/use-store-hooks').useAppSelector
-  const useArticleStore: typeof import('./stores/use-article-store').default
+  const useAppDispatch: typeof import('./stores/hooks').useAppDispatch
+  const useAppSelector: typeof import('./stores/hooks').useAppSelector
   const useAsyncEffect: typeof import('ahooks').useAsyncEffect
-  const useAutoScroll: typeof import('./composables/index').useAutoScroll
+  const useAutoScroll: typeof import('./hooks/useAutoScroll').useAutoScroll
   const useBoolean: typeof import('ahooks').useBoolean
   const useCallback: typeof import('react').useCallback
   const useClickAway: typeof import('ahooks').useClickAway
@@ -60,6 +65,7 @@ declare global {
   const useDrop: typeof import('ahooks').useDrop
   const useDynamicList: typeof import('ahooks').useDynamicList
   const useEffect: typeof import('react').useEffect
+  const useEffectEvent: typeof import('react').useEffectEvent
   const useEventEmitter: typeof import('ahooks').useEventEmitter
   const useEventListener: typeof import('ahooks').useEventListener
   const useEventTarget: typeof import('ahooks').useEventTarget
@@ -69,7 +75,6 @@ declare global {
   const useFullscreen: typeof import('ahooks').useFullscreen
   const useFusionTable: typeof import('ahooks').useFusionTable
   const useGetState: typeof import('ahooks').useGetState
-  const useGlobalStore: typeof import('./stores/use-global-store').default
   const useHistoryTravel: typeof import('ahooks').useHistoryTravel
   const useHover: typeof import('ahooks').useHover
   const useHref: typeof import('react-router').useHref
@@ -98,6 +103,7 @@ declare global {
   const useNavigate: typeof import('react-router').useNavigate
   const useNavigationType: typeof import('react-router').useNavigationType
   const useNetwork: typeof import('ahooks').useNetwork
+  const useOptimistic: typeof import('react').useOptimistic
   const useOutlet: typeof import('react-router').useOutlet
   const useOutletContext: typeof import('react-router').useOutletContext
   const usePagination: typeof import('ahooks').usePagination
@@ -116,7 +122,6 @@ declare global {
   const useRoutes: typeof import('react-router').useRoutes
   const useSafeState: typeof import('ahooks').useSafeState
   const useScroll: typeof import('ahooks').useScroll
-  const useScrollYBeforeNavigate: typeof import('./composables/index')['useScrollYBeforeNavigate']
   const useSearchParams: typeof import('react-router-dom').useSearchParams
   const useSelections: typeof import('ahooks').useSelections
   const useSelector: typeof import('react-redux').useSelector
@@ -125,7 +130,6 @@ declare global {
   const useSetState: typeof import('ahooks').useSetState
   const useSize: typeof import('ahooks').useSize
   const useState: typeof import('react').useState
-  const useStore: typeof import('./stores/use-store').default
   const useSyncExternalStore: typeof import('react').useSyncExternalStore
   const useTextSelection: typeof import('ahooks').useTextSelection
   const useTheme: typeof import('ahooks').useTheme
@@ -135,7 +139,6 @@ declare global {
   const useTimeout: typeof import('ahooks').useTimeout
   const useTitle: typeof import('ahooks').useTitle
   const useToggle: typeof import('ahooks').useToggle
-  const useTopicsStore: typeof import('./stores/use-topics-store').default
   const useTrackedEffect: typeof import('ahooks').useTrackedEffect
   const useTransition: typeof import('react').useTransition
   const useUnmount: typeof import('ahooks').useUnmount
@@ -150,6 +153,6 @@ declare global {
 // for type re-export
 declare global {
   // @ts-ignore
-  export type { RootState, AppDispatch } from './stores/use-store'
-  import('./stores/use-store')
+  export type { RootState, AppDispatch } from './stores/index'
+  import('./stores/index')
 }
