@@ -9,5 +9,5 @@ declare type Nullable<T> = T | null | undefined
 declare type Objable<T = unknown> = Record<string, T>
 
 declare interface Window {
-    $timeout: Record<string, ReturnType<typeof setTimeout>>
+    $timeout: Record<string, ReturnType<typeof window.setTimeout>>
 }

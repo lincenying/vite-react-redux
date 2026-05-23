@@ -16,7 +16,7 @@ export function useAutoScroll(key: string) {
 
             window.$timeout[key] = window.setTimeout(() => {
                 ls.set(`scroll_path_${pathname}`, window.scrollY)
-            }, 200)
+            }, 200) as unknown as NodeJS.Timeout
         }
 
         const scrollY = ls.get(`scroll_path_${pathname}`) || 0

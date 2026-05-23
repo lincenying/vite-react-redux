@@ -1,5 +1,17 @@
 # 变更记录
 
+## 2026-05-23 12:00:00
+
+### 改动内容
+
+- 修正 `Window.$timeout` 类型：使用 `ReturnType<typeof window.setTimeout>`，消除与浏览器 `setTimeout` 返回值（`number`）的类型冲突
+
+### Commit Message
+
+```
+fix: 修正 window.$timeout 的 setTimeout 返回类型
+```
+
 ## 2026-05-23
 
 ### 改动内容
